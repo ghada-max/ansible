@@ -1,0 +1,13 @@
+#[hosts]
+#54.174.28.113 ansible_user=ubuntu ansible_ssh_private_key_file=/home/azza/Downloads/ansible_key.pem# playbooks/install_docker_and_compose.yml
+- hosts: all
+  become: yes
+  vars:
+    user_to_add_to_docker_group: "ubuntu"  # Specify the user to add to the docker group here
+  roles:
+    # - docker
+     - docker_pull
+   # - docker_compose
+  #  - deploy
+    
+    

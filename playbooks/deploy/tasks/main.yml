@@ -1,0 +1,16 @@
+---
+- name: Run Frontend Container
+  docker_container:
+    name: frontend_container
+    image: azzaengineer/selectilla_frontend:latest-39
+    state: started
+    ports:
+      - "8082:80"  # Adjust as needed
+
+- name: Run Backend Container
+  docker_container:
+    name: backend_container
+    image: azzaengineer/selectilla_backend:latest-232
+    state: started
+    ports:
+      - "1337:1337"  # Adjust as needed

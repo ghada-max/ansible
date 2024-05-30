@@ -1,0 +1,46 @@
+---
+
+- name: Install pip3
+  apt:
+    name: python3-pip
+    state: present
+
+- name: Install Docker SDK for Python
+  pip:
+    name: docker
+    state: present
+
+- name: Docker login to ghada registry
+  command: docker login -u ghada477 -p ghada123***
+  register: docker_login
+  changed_when: "'Login Succeeded' in docker_login.stdout"
+  
+- name: stop backend container
+  command: docker stop backend_container
+  
+- name: stop frontend container
+  command: docker stop front_end
+
+- name: Effacer backend container
+  command: docker rm backend_container
+
+- name: Effacer frontend container
+  command: docker rm front_end
+
+- name: Effacer backend image
+  command: docker rmi ghada477/selectila_front-backend_test:latest 
+
+- name: Effacer frontend image
+  command: docker rmi ghada477/selectila_front-frontend:latest 
+
+- name: pull backend image
+  command: docker pull ghada477/selectila_front-backend_test
+  
+- name: pull frontend image
+  command: docker pull ghada477/selectila_front-frontend
+
+- name: Run backend container
+  command: docker run -d --name backend_container -p 1334:1337 ghada477/selectila_front-backend_test
+
+- name: Run frontend container
+  command: docker run -d --name front_end -p 8083:80 ghada477/selectila_front-frontend
