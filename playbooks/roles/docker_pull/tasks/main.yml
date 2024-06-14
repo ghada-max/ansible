@@ -28,10 +28,10 @@
   command: docker rm front_end
 
 - name: Effacer backend image
-  command: docker rmi ghada477/selectila_front-backend_test:latest 
+  command: docker rmi ghada477/back 
 
 - name: Effacer frontend image
-  command: docker rmi ghada477/selectila_front-frontend:latest 
+  command: docker rmi ghada477/front 
 
 - name: pull backend image
   command: docker pull ghada477/back
