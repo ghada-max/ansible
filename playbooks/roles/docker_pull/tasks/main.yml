@@ -21,11 +21,11 @@
 - name: stop frontend container
   command: docker stop front_end
 
-#- name: Effacer backend container
-#  command: docker rm backend_container
+- name: Effacer backend container
+  command: docker rm backend_container
 
-#- name: Effacer frontend container
-  #command: docker rm front_end
+- name: Effacer frontend container
+  command: docker rm front_end
 
 - name: Effacer backend image --force
   command: docker rmi ghada477/back 
