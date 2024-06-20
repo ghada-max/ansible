@@ -39,8 +39,11 @@
 - name: pull frontend image
   command: docker pull ghada477/front
 
-- name: Run backend container
-  command: docker run -d --name backend_container -p 1334:1337 ghada477/back
+- name: Docker compose up
+  command: docker compose up
 
-- name: Run frontend container
-  command: docker run -d --name front_end -p 8083:80 ghada477/front
+#- name: Run backend container
+#  command: docker run -d --name backend_container -p 1334:1337 ghada477/back
+
+#- name: Run frontend container
+  #command: docker run -d --name front_end -p 8083:80 ghada477/front
